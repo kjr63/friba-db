@@ -1,5 +1,4 @@
 import React from 'react';
-import { discData, DISPLAY_MODE } from '../utils/variables.jsx';
 
 function TableItem (props) {
     const images = props.disc.image.split(';');
@@ -25,7 +24,7 @@ function TableItem (props) {
     )
 }
 
-export default class DiscTable extends React.Component {
+export default class SortedTable extends React.Component {
     constructor (props) {
         super (props);
         this.FORMAT_OPTION = DISPLAY_MODE;
@@ -34,32 +33,9 @@ export default class DiscTable extends React.Component {
             list: [],
             listCnt: 0
         };
-        //this.sortTable = this.sortTable.bind(this);
-        this.formattedArray = this.formattedArray.bind (this);
+        this.sortTable = this.sortTable.bind(this);
     }
     componentDidMount () {
-        let data = this.formattedArray ( this.props.dispMode, discData );
-        this.setState ( { list: data, listCnt: data.length } );
-    }
-    formattedArray (format, discArray) {
-        let displayArray = [];
-        //Formatoi taulu
-        switch (format) {
-            case 'ONLY_TRADE_DISCS': {
-                discArray.forEach (
-                    (item) =>
-                    { if (item.status === "Vaihtari") displayArray.push (item); }
-                )
-                break;
-            }
-            default: {
-                //displayArray = discArray.map ( (item) => {return item} );
-                displayArray = discArray.map ( function (item) { return item; } );
-                break;
-            }
-        }
-        //Palauta formatoitu taulu
-        return displayArray;
     }
     sortTable (col) {
         let obj = this.state.list;

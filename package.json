@@ -15,7 +15,7 @@
     "watch-wp": "webpack -w",
     "build-wp-prod": "webpack -p --env production",
     "start": "npm-run-all --parallel watch-sass watch-wp",
-	"build-all-dev":"npm-run-all build-wp-dev build-sass-dev",
+    "build-all-dev": "npm-run-all build-wp-dev build-sass-dev",
     "dev-server": "webpack-dev-server",
     "test": "jest --config=jest.config.json"
   },
@@ -43,5 +43,7 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-table": "^7.1.0"
+  }
 }

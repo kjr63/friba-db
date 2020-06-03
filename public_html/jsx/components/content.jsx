@@ -1,5 +1,7 @@
 import React from 'react';
-import DiscTable from "./discTable.jsx";
+//import DiscTable from "./discTable.jsx";
+//import RTable from "./reactTable.jsx";
+import DscTable from "./dscTable.jsx";
 
 export default class Content extends React.Component {
     constructor (props) {
@@ -8,7 +10,7 @@ export default class Content extends React.Component {
     render () {     
         return (
             <main>
-                <DiscTable />
+                <DscTable />
             </main>          
         );
     }
