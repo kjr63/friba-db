@@ -186,10 +186,11 @@ export const discData = [
     { id:376, manuf:"Innova", type:11, mold:"Mamba", plastic:"Champion", weight:"175g", color:"Sininen", mint:"9+", info:"", image:"", status:"Muu" },
     { id:378, manuf:"Westside Discs", type:12, mold:"Vipunen", plastic:"BT", weight:"172g", color:"Punainen", mint:"7+", info:"", image:"", status:"Muu" },
     { id:380, manuf:"Discmania", type:4, mold:"Tactic", plastic:"Exo", weight:"174g", color:"Sininen", mint:"9", info:"", image:"", status:"Muu" },
+    { id:382, manuf:"Latitude64", type:2, mold:"Sinus", plastic:"Zero soft", weight:"174g", color:"Valkoinen", mint:"9", info:"", image:"", status:"Muu" },
     
 ];
 
-//export const DISPLAY_MODE = 'ALL';
-export const DISPLAY_MODE = 'ONLY_TRADE_DISCS';
+export const DISPLAY_MODE = 'ALL';
+//export const DISPLAY_MODE = 'ONLY_TRADE_DISCS';
 
 //export default discData;

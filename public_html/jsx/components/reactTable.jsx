@@ -53,8 +53,6 @@ export default function RTable (props) {
     prepareRow,
   } = useTable( { columns, data }, useSortBy )
 
-console.log('rt '+props.data[0].col1);
-
   return (
     <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
       <thead>

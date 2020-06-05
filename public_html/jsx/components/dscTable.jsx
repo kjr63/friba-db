@@ -1,90 +1,126 @@
 import React from 'react';
 import { DISPLAY_MODE } from "../utils/variables.jsx";
+import { discData } from "../utils/variables.jsx";
 import DiscTable from "./discTable.jsx";
 import RTable from "./reactTable.jsx";
 
 export default class DscTable extends React.Component {
     constructor (props) {
         super(props);
-		this.initHeaders = [
+		this.headers = [
 			{
-				Header: 'Col 1',
+				Header: 'Valmistaja',
 				accessor: 'col1',
 			},
 			{
-				Header: 'Col 2',
+				Header: 'Nopeus',
 				accessor: 'col2',
-			},		
-		];
-		this.clickData = [
-			{
-			col1: 'click Tsaukkis',
-			col2: 'click World',
 			},
 			{
-			col1: 'click react-table',
-			col2: 'click jyrää',
+				Header: 'Malli',
+				accessor: 'col3',
 			},
 			{
-			col1: 'click aina',
-			col2: 'click kun tahdot',
+				Header: 'Muovi',
+				accessor: 'col4',
 			},
 			{
-			col1: 'click lisä',
-			col2: 'click rivi',
-			},				
-		];
-		this.initData = [
-			{
-			col1: 'Tsaukkis',
-			col2: 'World',
+				Header: 'Paino',
+				accessor: 'col5',
 			},
 			{
-			col1: 'react-table',
-			col2: 'jyrää',
+				Header: 'Väri',
+				accessor: 'col6',
 			},
 			{
-			col1: 'aina',
-			col2: 'kun tahdot',
-			},		
+				Header: 'Kunto',
+				accessor: 'col7',
+			},
+			{
+				Header: 'Info',
+				accessor: 'col8',
+			},
+			{
+				Header: 'Kuva',
+				accessor: 'col9',
+			},			
 		];
 		this.state = {
-			tData: this.initData,
-			tHeaders: this.initHeaders,
-			tHeader: '',
+			tData: [],
+			tText: '',
 			tButton: '',
-			counter: 0,
 		}
 		this.toggleTable = this.toggleTable.bind(this);
-		//console.log(this.state.tData);
+		this.crossTable = this.crossTable.bind(this);
+        this.formattedArray = this.formattedArray.bind (this);
     }
 	componentDidMount () {
-		//if ( DISPLAY_MODE === 'ALL' ) this.setState ({ tHeader:'Kaikki kiekot', tButton: 'Vaihtarit' });
-		//else this.setState ({ tHeader:'Kiekkovaihtarit', tButton: 'Kaikki kiekot' });
-		//this.setState ({tData:this.initData, tHeaders:this.initHeaders});
-		this.setState (
-			function (prevState) {
-				return (
-					{
-						tHeader: 'Kaikki kiekot',
-						tButton: 'Kaikki kiekot',
-						tData: this.initData,
-						tHeaders: this.initHeaders
-					}
-				);
-			}
-		);
+		if ( DISPLAY_MODE === 'ALL' ) {
+			this.setState (
+				{ 
+					tText:'Kaikki kiekot',
+					tButton: 'Vaihtarit',
+					tData: this.formattedArray ('ALL', discData)
+				}
+			);
+		}
+		else {
+			this.setState (
+				{ 
+					tText:'Vaihtarit',
+					tButton: 'Kaikki kiekot',
+					tData: this.formattedArray ('ONLY_TRADE_DISCS', discData)
+				}
+			);
+		}
 	}
+	crossTable (from) {
+		let toRow = { 
+			col1: from.manuf,
+			col2: from.type,
+			col3: from.mold,
+			col4: from.plastic,
+			col5: from.weight,
+			col6: from.color,
+			col7: from.mint,
+			col8: from.info,
+			col9: from.image
+		};
+		return toRow;
+	}
+    formattedArray (format, discArray) {
+        let displayArray = [];
+        //Formatoi taulu
+        switch (format) {
+            case 'ONLY_TRADE_DISCS': {
+				let i = 0;
+				for (i=0; i<discArray.length; i++) {
+					if (discArray[i].status === "Vaihtari") {
+						displayArray.push(this.crossTable(discArray[i]));
+					}
+				}
+                break;
+            }
+            default: {
+                displayArray = discArray.map ( item => this.crossTable(item) );
+                break;
+            }
+        }
+        //Palauta formatoitu taulu
+        return displayArray;
+    }	
 	toggleTable () {
 		this.setState (
 			function (prevState) {
+				let orig = prevState.tText;
 				return (
 					{
-						tHeader: (prevState.tHeader === 'Kiekkovaihtarit') ? 'Kaikki kiekot' : 'Kiekkovaihtarit',
-						tButton: (prevState.tButton === 'Vaihtarit') ? 'Kaikki kiekot' : 'Vaihtarit',
-						tData: this.clickData,
-						tHeaders: this.clickHeaders,
-						counter: prevState.counter + 1
+						tText: (orig === 'Vaihtarit') ? 'Kaikki kiekot' : 'Vaihtarit',
+						tButton: (orig === 'Vaihtarit') ? 'Vaihtarit' : 'Kaikki kiekot',
+						tData:
+							(orig === 'Vaihtarit') ? 
+							this.formattedArray('ALL', discData) :
+							this.formattedArray('ONLY_TRADE_DISCS', discData),
 					}
 				);
 			}
@@ -94,10 +130,10 @@ export default class DscTable extends React.Component {
         return (
             <section>
 				<div>
-					<p>{this.state.tHeader}</p>
+					<p>{this.state.tText}</p>
 					<p onClick={this.toggleTable}>{this.state.tButton}</p>
 				</div>
-                <RTable cols={this.state.tHeaders} data={this.state.tData} />
+                <RTable cols={this.headers} data={this.state.tData} key={this.state.counter} />
             </section>          
         );
     }
