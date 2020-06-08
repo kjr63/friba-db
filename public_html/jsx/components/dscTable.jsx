@@ -1,7 +1,6 @@
 import React from 'react';
 import { DISPLAY_MODE } from "../utils/variables.jsx";
 import { discData } from "../utils/variables.jsx";
-import DiscTable from "./discTable.jsx";
 import RTable from "./reactTable.jsx";
 
 export default class DscTable extends React.Component {
@@ -42,7 +41,16 @@ export default class DscTable extends React.Component {
 			},
 			{
 				Header: 'Kuva',
-				accessor: 'col9',
+				accessor: 'col9',			
+				Cell: function (cell) {
+					const valueArray = cell.value.split(';');
+					return (
+						<div>
+							<div><a target='_blank' href={'../img/'+valueArray[0]}> {valueArray[0]}</a></div>
+							<div><a target='_blank' href={'../img/'+valueArray[1]}> {valueArray[1]} </a></div>
+						</div>
+					);
+				}			
 			},			
 		];
 		this.state = {

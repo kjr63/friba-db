@@ -1,4 +1,5 @@
 import React from 'react';
+import { useMemo } from 'react';
 import {
   useTable,
   useSortBy
@@ -24,7 +25,7 @@ export default function RTable (props) {
     // []
   // )
 
-   const data = React.useMemo(
+   const data = useMemo(
     (d = props.data) => d //Poistettu [] , jolloin päivittää taulukon aina kun tila muuttuu
   )
   
@@ -41,7 +42,7 @@ export default function RTable (props) {
     // ],
     // []
   // )
-  const columns = React.useMemo(
+  const columns = useMemo(
     (h = props.cols) => h, []
   )  
 
