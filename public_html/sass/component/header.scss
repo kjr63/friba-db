@@ -3,16 +3,13 @@
     Author     : risberg
 */
 .header {
-    background-color: teal;
+    background-color: $color-pri;
     font-size: 8rem;
     display: flex;
     justify-content: space-evenly;
     &__text {
         &-1 {
             color: whitesmoke;
-        }
-        &-2 {
-            color: yellowgreen;
         }
     }
 }

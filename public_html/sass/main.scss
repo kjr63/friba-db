@@ -7,9 +7,10 @@ and open the template in the editor.
     Created on : 20.2.2020, 11:17:12
     Author     : risberg
 */
-@import "./util/variables.scss";
-@import "./util/tooltip.scss";
-@import "./layout/base.scss";
-@import "./component/dynamic_table.scss";
+@import "./abstract/variables.scss";
+@import "./base/base.scss";
+@import "./base/tooltip.scss";
 @import "./component/header.scss";
+@import "./component/button.scss";
+@import "./component/disc-table.scss";
 

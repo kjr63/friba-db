@@ -1,5 +1,6 @@
 //console.log(__dirname);
 const path = require('path');
+//const { WebpackWarPlugin } = require('webpack-war-plugin');
 
 //export funktio
 

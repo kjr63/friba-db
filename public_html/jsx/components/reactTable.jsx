@@ -55,19 +55,14 @@ export default function RTable (props) {
   } = useTable( { columns, data }, useSortBy )
 
   return (
-    <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
-      <thead>
+	<div  className="disc-table__content">
+    <table className="react-table" {...getTableProps()}>
+      <thead className="react-table__thead" >
         {headerGroups.map(headerGroup => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
+          <tr className="react-table__tr" {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map(column => (
-              <th
+              <th className="react-table__th"
                 {...column.getHeaderProps( column.getSortByToggleProps() )}
-                style={{
-                  borderBottom: 'solid 3px red',
-                  background: 'aliceblue',
-                  color: 'black',
-                  fontWeight: 'bold',
-                }}
               >
                 {column.render('Header')}
 			
@@ -76,20 +71,15 @@ export default function RTable (props) {
           </tr>
         ))}
       </thead>
-      <tbody {...getTableBodyProps()}>
+      <tbody className="react-table__body" {...getTableBodyProps()}>
         {rows.map(row => {
           prepareRow(row)
           return (
-            <tr {...row.getRowProps()}>
+            <tr className="react-table__body__tr" {...row.getRowProps()}>
               {row.cells.map(cell => {
                 return (
-                  <td
+                  <td className="react-table__body__td"
                     {...cell.getCellProps()}
-                    style={{
-                      padding: '10px',
-                      border: 'solid 1px gray',
-                      background: 'papayawhip',
-                    }}
                   >
                     {cell.render('Cell')}
                   </td>
@@ -100,5 +90,6 @@ export default function RTable (props) {
         })}
       </tbody>
     </table>
+	</div>
   )
 }

@@ -1,0 +1,12 @@
+.btn-basic {
+	background-color: whitesmoke;
+	padding: 0.4em;
+	border: 1px solid whitesmoke;
+	border-radius: 5px;
+	box-shadow: 5px 5px black;
+	cursor: pointer;
+	&:hover {
+		box-shadow: 5px 5px 10px black;
+		transform: translateY(-2px);
+	}
+}

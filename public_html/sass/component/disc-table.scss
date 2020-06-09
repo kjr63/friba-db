@@ -1,0 +1,42 @@
+.disc-table {
+	&__header {
+		padding: 1em;
+		background-color: $color-sec;
+		display: flex;
+		align-items: center;
+		&__text {
+			display: inline-block;
+			margin-right: 1em;
+			color: whitesmoke;
+			font-size: 4em;
+		}
+		&__button {
+			display: inline-block;
+		}
+	}
+	&__content {
+		display: flex;
+		justify-content: center;
+		padding: 1em;
+	}
+}
+.react-table {
+	border: 1px solid blue;
+	&__thead {}
+	&__tr {}
+	&__th {
+		//border-bottom: 3px solid red;
+		background-color: $color-quad;
+		color: whitesmoke;
+		font-weight: bold;
+	}
+	&__body {
+		&__tr {}
+		&__td {
+			padding: 10px;
+			border: 1px solid gray;
+			background-color: whitesmoke;
+			color: $color-pri;
+		}
+	}
+}
