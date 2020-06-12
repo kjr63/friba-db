@@ -9,7 +9,7 @@ module.exports = function (env) {
 	return (
 		{
 			entry: {
-				app: "./public_html/jsx/components/app.jsx"
+				app: "./public_html/jsx/app.jsx"
 				//blog: "./public_html/jsx/components/blog.jsx"
 			},
 			mode: "development",

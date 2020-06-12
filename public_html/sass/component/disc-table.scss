@@ -22,6 +22,11 @@
 }
 .react-table {
 	border: 1px solid blue;
+	&__caption {
+		background-color: $color-ter;
+		color: whitesmoke;
+		font-size: 1.6em;
+	}
 	&__thead {}
 	&__tr {}
 	&__th {

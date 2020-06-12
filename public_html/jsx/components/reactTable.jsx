@@ -57,6 +57,7 @@ export default function RTable (props) {
   return (
 	<div  className="disc-table__content">
     <table className="react-table" {...getTableProps()}>
+	  <caption className="react-table__caption">{props.capt} kpl</caption>
       <thead className="react-table__thead" >
         {headerGroups.map(headerGroup => (
           <tr className="react-table__tr" {...headerGroup.getHeaderGroupProps()}>

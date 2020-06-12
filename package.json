@@ -1,5 +1,5 @@
 {
-  "name": "test1",
+  "name": "friba-db",
   "version": "1.0.0",
   "description": "node.js testisovellus",
   "main": "index.js",
@@ -45,6 +45,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "react-table": "^7.1.0"
   }
 }

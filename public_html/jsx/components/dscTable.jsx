@@ -141,7 +141,7 @@ export default class DscTable extends React.Component {
 					<div className="disc-table__header__text">{this.state.tText}</div>
 					<div className="disc-table__header__button btn-basic" onClick={this.toggleTable}>{this.state.tButton}</div>
 				</div>
-                <RTable cols={this.headers} data={this.state.tData} />
+                <RTable cols={this.headers} data={this.state.tData} capt={this.state.tData.length}/>
             </section>          
         );
     }

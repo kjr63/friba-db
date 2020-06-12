@@ -134,6 +134,10 @@ table, th, td {
 
 .react-table {
   border: 1px solid blue; }
+  .react-table__caption {
+    background-color: #a79e84;
+    color: whitesmoke;
+    font-size: 1.6em; }
   .react-table__th {
     background-color: #7a3b2e;
     color: whitesmoke;
