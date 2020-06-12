@@ -3,8 +3,8 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const publicPath = path.join(__dirname, '..', 'public_html');
-//const http = require('http');
-const port = process.env.PORT;
+const http = require('http');
+const port = process.env.PORT || staticPort; //heroku asetus process.env.PORT
 
 app.use(express.static(publicPath));
 app.listen( port, () => { console.log('friba-db is alive!'); } );
