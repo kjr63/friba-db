@@ -1,11 +1,13 @@
 import React from 'react';
 import { DISPLAY_MODE } from "../utils/variables.jsx";
-import { discData } from "../utils/variables.jsx";
+//import { discData } from "../utils/variables.jsx";
 import RTable from "./reactTable.jsx";
+import { database } from "../../firebase/firebase.jsx";
 
 export default class DscTable extends React.Component {
     constructor (props) {
         super(props);
+		this.databaseData = [];
 		this.headers = [
 			{
 				Header: 'Valmistaja',
@@ -61,27 +63,9 @@ export default class DscTable extends React.Component {
 		this.toggleTable = this.toggleTable.bind(this);
 		this.crossTable = this.crossTable.bind(this);
         this.formattedArray = this.formattedArray.bind (this);
+		this.setTableDisplay = this.setTableDisplay.bind (this);
     }
-	componentDidMount () {
-		if ( DISPLAY_MODE === 'ALL' ) {
-			this.setState (
-				{ 
-					tText:'Kaikki kiekot',
-					tButton: 'Vaihtarit',
-					tData: this.formattedArray ('ALL', discData)
-				}
-			);
-		}
-		else {
-			this.setState (
-				{ 
-					tText:'Vaihtarit',
-					tButton: 'Kaikki kiekot',
-					tData: this.formattedArray ('ONLY_TRADE_DISCS', discData)
-				}
-			);
-		}
-	}
+
 	crossTable (from) {
 		let toRow = { 
 			col1: from.manuf,
@@ -116,7 +100,27 @@ export default class DscTable extends React.Component {
         }
         //Palauta formatoitu taulu
         return displayArray;
-    }	
+    }
+	setTableDisplay (mode, dData) {
+		if ( mode === 'ALL' ) {
+			this.setState (
+				{ 
+					tText: 'Kaikki kiekot',
+					tButton: 'Vaihtarit',
+					tData: this.formattedArray ('ALL', dData)
+				}
+			);
+		}
+		else {
+			this.setState (
+				{ 
+					tText: 'Vaihtarit',
+					tButton: 'Kaikki kiekot',
+					tData: this.formattedArray ('ONLY_TRADE_DISCS', dData)
+				}
+			);
+		}			
+	}
 	toggleTable () {
 		this.setState (
 			function (prevState) {
@@ -127,11 +131,35 @@ export default class DscTable extends React.Component {
 						tButton: (orig === 'Vaihtarit') ? 'Vaihtarit' : 'Kaikki kiekot',
 						tData:
 							(orig === 'Vaihtarit') ? 
-							this.formattedArray('ALL', discData) :
-							this.formattedArray('ONLY_TRADE_DISCS', discData),
+							this.formattedArray('ALL', this.databaseData) :
+							this.formattedArray('ONLY_TRADE_DISCS', this.databaseData),
 					}
 				);
 			}
+		);
+	}
+	componentDidMount () {
+		// Lue tietokanta
+		database.ref().once("value")
+			.then(
+				(snapshot) => {
+					snapshot.forEach ( 
+						(childSnapshot) => {
+							// key will be "ada" the first time and "alan" the second time
+							let key = childSnapshot.key;
+							// childData will be the actual contents of the child
+							let childData = childSnapshot.val();
+							this.databaseData.push(childData);
+							//console.log("cd= "+childData.manuf);
+						}
+					);
+					//console.log("this.databaseData= "+this.databaseData);
+					//Päivitä taulukko
+					this.setTableDisplay (DISPLAY_MODE, this.databaseData);					
+				},
+				(error) => {
+					console.log("databse read error: ", error);
+				}
 		);
 	}	
     render () {
