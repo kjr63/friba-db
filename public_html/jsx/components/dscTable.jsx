@@ -87,7 +87,7 @@ export default class DscTable extends React.Component {
             case 'ONLY_TRADE_DISCS': {
 				let i = 0;
 				for (i=0; i<discArray.length; i++) {
-					if (discArray[i].status === "Vaihtari") {
+					if (discArray[i].status.trim() === "Vaihtari") {
 						displayArray.push(this.crossTable(discArray[i]));
 					}
 				}
@@ -158,7 +158,7 @@ export default class DscTable extends React.Component {
 					this.setTableDisplay (DISPLAY_MODE, this.databaseData);					
 				},
 				(error) => {
-					console.log("databse read error: ", error);
+					console.log("database read error: ", error);
 				}
 		);
 	}	
