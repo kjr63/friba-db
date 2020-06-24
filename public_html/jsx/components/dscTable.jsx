@@ -59,6 +59,7 @@ export default class DscTable extends React.Component {
 			tData: [],
 			tText: '',
 			tButton: '',
+			tDisplay: 'none',
 		}
 		this.toggleTable = this.toggleTable.bind(this);
 		this.crossTable = this.crossTable.bind(this);
@@ -155,7 +156,8 @@ export default class DscTable extends React.Component {
 					);
 					//console.log("this.databaseData= "+this.databaseData);
 					//Päivitä taulukko
-					this.setTableDisplay (DISPLAY_MODE, this.databaseData);					
+					this.setTableDisplay (DISPLAY_MODE, this.databaseData);
+					this.setState({tDisplay:'block'});
 				},
 				(error) => {
 					console.log("database read error: ", error);
@@ -164,7 +166,7 @@ export default class DscTable extends React.Component {
 	}	
     render () {
         return (
-            <section className="disc-table">
+            <section className="disc-table" style={{display:this.state.tDisplay}}>
 				<div className="disc-table__header">
 					<div className="disc-table__header__text">{this.state.tText}</div>
 					<div className="disc-table__header__button btn-basic" onClick={this.toggleTable}>{this.state.tButton}</div>

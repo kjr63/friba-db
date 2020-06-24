@@ -118,7 +118,8 @@ table, th, td {
   padding: 1em;
   background-color: #bd5734;
   display: flex;
-  align-items: center; }
+  align-items: center;
+  justify-content: space-between; }
   .disc-table__header__text {
     display: inline-block;
     margin-right: 1em;

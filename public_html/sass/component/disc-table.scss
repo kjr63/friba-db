@@ -4,6 +4,7 @@
 		background-color: $color-sec;
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		&__text {
 			display: inline-block;
 			margin-right: 1em;
