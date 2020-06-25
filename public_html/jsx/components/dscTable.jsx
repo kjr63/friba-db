@@ -76,7 +76,7 @@ export default class DscTable extends React.Component {
 			col6: from.color,
 			col7: from.mint,
 			col8: from.info,
-			col9: from.image
+			col9: from.image.trim()
 		};
 		return toRow;
 	}
