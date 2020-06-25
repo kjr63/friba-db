@@ -102,16 +102,18 @@ table, th, td {
   background-color: #454140;
   font-size: 8rem;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   padding: 1.6rem; }
   .header__text-1 {
     color: whitesmoke; }
 
-.image_block__image {
-  width: 64rem;
-  height: 32rem;
-  object-fit: contain; }
+.image_block {
+  text-align: right; }
+  .image_block__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; }
 
 .btn-basic {
   background-color: whitesmoke;
