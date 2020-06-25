@@ -1,6 +1,5 @@
 import React from 'react';
 import { DISPLAY_MODE } from "../utils/variables.jsx";
-//import { discData } from "../utils/variables.jsx";
 import RTable from "./reactTable.jsx";
 import { database } from "../../firebase/firebase.jsx";
 
