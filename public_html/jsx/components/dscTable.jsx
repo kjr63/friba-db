@@ -165,7 +165,7 @@ export default class DscTable extends React.Component {
 	}	
     render () {
         return (
-            <section className="disc-table" style={{display:this.state.tDisplay}}>
+            <section className="disc-table content__center" style={{display:this.state.tDisplay}}>
 				<div className="disc-table__header">
 					<div className="disc-table__header__text">{this.state.tText}</div>
 					<div className="disc-table__header__button btn-basic" onClick={this.toggleTable}>{this.state.tButton}</div>

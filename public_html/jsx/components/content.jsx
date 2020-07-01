@@ -7,8 +7,10 @@ export default class Content extends React.Component {
     }
     render () {     
         return (
-            <main>
+            <main className="content">
+				<div className="content__left"></div>
                 <DscTable />
+				<div className="content__right"></div>
             </main>          
         );
     }

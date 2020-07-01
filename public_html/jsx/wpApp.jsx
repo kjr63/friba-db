@@ -13,7 +13,7 @@ export default class WpApp extends React.Component {
 
     render () {     
         return (
-            <div>
+            <div className="template">
                 <Header />
                 <Content />
             </div>

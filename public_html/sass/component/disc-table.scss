@@ -1,7 +1,9 @@
 .disc-table {
+	background-color: $color-pri;
+	box-shadow: 0 0 15px $color-pri;
 	&__header {
 		padding: 1rem;
-		background-color: $color-sec;
+		//background-color: $color-sec;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -10,6 +12,7 @@
 			margin-right: 1rem;
 			color: whitesmoke;
 			font-size: 4rem;
+			font-family: serif;
 		}
 		&__button {
 			display: inline-block;
@@ -19,13 +22,14 @@
 		display: flex;
 		justify-content: center;
 		padding: 1rem;
-		font-size: 1.8rem;
+		//font-size: 1.8rem;
+		font-size: 1.2rem;
 	}
 }
 .react-table {
 	border: 1px solid blue;
 	&__caption {
-		background-color: $color-ter;
+		background-color: $color-sec;
 		color: whitesmoke;
 		font-size: 1.6rem;
 	}
