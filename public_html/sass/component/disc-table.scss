@@ -1,6 +1,6 @@
 .disc-table {
 	background-color: $color-pri;
-	box-shadow: 0 0 15px $color-pri;
+	box-shadow: 0 0 8px $color-pri;
 	&__header {
 		padding: 1rem;
 		//background-color: $color-sec;
@@ -23,7 +23,7 @@
 		justify-content: center;
 		padding: 1rem;
 		//font-size: 1.8rem;
-		font-size: 1.2rem;
+		font-size: 1.4rem;
 	}
 }
 .react-table {

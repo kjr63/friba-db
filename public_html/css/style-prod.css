@@ -94,19 +94,26 @@ table, th, td {
   visibility: visible;
   opacity: 1; }
 
+.template {
+  background-color: #a79e84;
+  transform: skewY(-20deg); }
+
 /*
     Created on : 28.2.2020, 12:53:40
     Author     : risberg
 */
 .header {
-  background-color: #454140;
   font-size: 8rem;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 1.6rem; }
+  padding: 1.6rem;
+  transform: translateY(-12rem); }
   .header__text-1 {
-    color: whitesmoke; }
+    color: ForestGreen;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-shadow: 3px 3px 5px #a79e84; }
 
 .image_block {
   text-align: right; }
@@ -114,6 +121,20 @@ table, th, td {
     width: 100%;
     height: 100%;
     object-fit: contain; }
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 4rem;
+  transform: skewY(20deg); }
+  .content__left {
+    flex-basis: 22%; }
+  .content__center {
+    overflow: hidden; }
+  .content__right {
+    flex-basis: 3%;
+    height: 140vh; }
 
 .btn-basic {
   background-color: whitesmoke;
@@ -127,30 +148,32 @@ table, th, td {
     box-shadow: 5px 5px 10px black;
     transform: translateY(-2px); }
 
-.disc-table__header {
-  padding: 1rem;
-  background-color: #bd5734;
-  display: flex;
-  align-items: center;
-  justify-content: space-between; }
-  .disc-table__header__text {
-    display: inline-block;
-    margin-right: 1rem;
-    color: whitesmoke;
-    font-size: 4rem; }
-  .disc-table__header__button {
-    display: inline-block; }
-
-.disc-table__content {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  font-size: 1.8rem; }
+.disc-table {
+  background-color: #454140;
+  box-shadow: 0 0 8px #454140; }
+  .disc-table__header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .disc-table__header__text {
+      display: inline-block;
+      margin-right: 1rem;
+      color: whitesmoke;
+      font-size: 4rem;
+      font-family: serif; }
+    .disc-table__header__button {
+      display: inline-block; }
+  .disc-table__content {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    font-size: 1.4rem; }
 
 .react-table {
   border: 1px solid blue; }
   .react-table__caption {
-    background-color: #a79e84;
+    background-color: #bd5734;
     color: whitesmoke;
     font-size: 1.6rem; }
   .react-table__th {
