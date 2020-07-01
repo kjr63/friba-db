@@ -68,14 +68,14 @@ export default class DscTable extends React.Component {
 
 	crossTable (from) {
 		let toRow = { 
-			col1: from.manuf,
+			col1: from.manuf.trim(),
 			col2: from.type.trim(),
-			col3: from.mold,
-			col4: from.plastic,
+			col3: from.mold.trim(),
+			col4: from.plastic.trim(),
 			col5: from.weight.trim(),
-			col6: from.color,
+			col6: from.color.trim(),
 			col7: from.mint.trim(),
-			col8: from.info,
+			col8: from.info.trim(),
 			col9: from.image.trim()
 		};
 		return toRow;
