@@ -60,7 +60,7 @@ export default class DscTable extends React.Component {
 			tButton: '',
 			tDisplay: 'none',
 		}
-		this.toggleTable = this.toggleTable.bind(this);
+		this.toggleFilter = this.toggleFilter.bind(this);
 		this.crossTable = this.crossTable.bind(this);
         this.formattedArray = this.formattedArray.bind (this);
 		this.setTableDisplay = this.setTableDisplay.bind (this);
@@ -121,7 +121,7 @@ export default class DscTable extends React.Component {
 			);
 		}			
 	}
-	toggleTable () {
+	toggleFilter () {
 		this.setState (
 			function (prevState) {
 				let orig = prevState.tText;
@@ -145,16 +145,15 @@ export default class DscTable extends React.Component {
 				(snapshot) => {
 					snapshot.forEach ( 
 						(childSnapshot) => {
-							// key will be "ada" the first time and "alan" the second time
 							let key = childSnapshot.key;
 							// childData will be the actual contents of the child
 							let childData = childSnapshot.val();
+							// Kirjoita data muuttujaan, jotta ei tarvita uutta tietokantahakua
 							this.databaseData.push(childData);
-							//console.log("cd= "+childData.manuf);
 						}
 					);
 					//console.log("this.databaseData= "+this.databaseData);
-					//Päivitä taulukko
+					// Suodata data (DISPLAY_MODE) ja päivitä react-table data
 					this.setTableDisplay (DISPLAY_MODE, this.databaseData);
 					this.setState({tDisplay:'block'});
 				},
@@ -168,7 +167,7 @@ export default class DscTable extends React.Component {
             <section className="disc-table content__center" style={{display:this.state.tDisplay}}>
 				<div className="disc-table__header">
 					<div className="disc-table__header__text">{this.state.tText}</div>
-					<div className="disc-table__header__button btn-basic" onClick={this.toggleTable}>{this.state.tButton}</div>
+					<div className="disc-table__header__button btn-basic" onClick={this.toggleFilter}>{this.state.tButton}</div>
 				</div>
                 <RTable cols={this.headers} data={this.state.tData} capt={this.state.tData.length}/>
             </section>          

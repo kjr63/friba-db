@@ -1,0 +1,17 @@
+.content {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding-top: 4rem;
+	transform: skewY(20deg);	
+	&__left { 
+		flex-basis: 22%;
+	}
+	&__center { 
+		overflow: hidden;
+	}
+	&__right {
+		flex-basis: 3%;
+		height: 140vh;
+	}
+}
