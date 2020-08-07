@@ -9,6 +9,10 @@ export default class DscTable extends React.Component {
 		this.databaseData = [];
 		this.headers = [
 			{
+				Header: 'Id',
+				accessor: 'col0',
+			},		
+			{
 				Header: 'Valmistaja',
 				accessor: 'col1',
 			},
@@ -52,6 +56,10 @@ export default class DscTable extends React.Component {
 						</div>
 					);
 				}			
+			},
+			{
+				Header: 'Status',
+				accessor: 'col10',
 			},			
 		];
 		this.state = {
@@ -67,7 +75,8 @@ export default class DscTable extends React.Component {
     }
 
 	crossTable (from) {
-		let toRow = { 
+		let toRow = {
+			col0: from.id.trim(),
 			col1: from.manuf.trim(),
 			col2: from.type.trim(),
 			col3: from.mold.trim(),
@@ -76,7 +85,8 @@ export default class DscTable extends React.Component {
 			col6: from.color.trim(),
 			col7: from.mint.trim(),
 			col8: from.info.trim(),
-			col9: from.image.trim()
+			col9: from.image.trim(),
+			col10: from.status.trim(),
 		};
 		return toRow;
 	}
@@ -154,7 +164,13 @@ export default class DscTable extends React.Component {
 					);
 					//console.log("this.databaseData= "+this.databaseData);
 					// Suodata data (DISPLAY_MODE) ja päivitä react-table data
-					this.setTableDisplay (DISPLAY_MODE, this.databaseData);
+					//this.setTableDisplay (DISPLAY_MODE, this.databaseData);
+					let displayArray = [];
+					let i = 0;
+					for (i=0; i<this.databaseData.length; i++) {
+						displayArray.push(this.crossTable(this.databaseData[i]));
+					}
+					this.setState ({tData: displayArray});
 					this.setState({tDisplay:'block'});
 				},
 				(error) => {

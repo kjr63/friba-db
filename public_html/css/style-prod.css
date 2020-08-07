@@ -163,7 +163,7 @@ table, th, td {
       font-size: 4rem;
       font-family: serif; }
     .disc-table__header__button {
-      display: inline-block; }
+      display: none; }
   .disc-table__content {
     display: flex;
     justify-content: center;
