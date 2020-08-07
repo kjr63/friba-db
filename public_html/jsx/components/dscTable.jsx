@@ -64,14 +64,9 @@ export default class DscTable extends React.Component {
 		];
 		this.state = {
 			tData: [],
-			tText: '',
-			tButton: '',
 			tDisplay: 'none',
 		}
-		this.toggleFilter = this.toggleFilter.bind(this);
 		this.crossTable = this.crossTable.bind(this);
-        this.formattedArray = this.formattedArray.bind (this);
-		this.setTableDisplay = this.setTableDisplay.bind (this);
     }
 
 	crossTable (from) {
@@ -89,64 +84,6 @@ export default class DscTable extends React.Component {
 			col10: from.status.trim(),
 		};
 		return toRow;
-	}
-    formattedArray (format, discArray) {
-        let displayArray = [];
-        //Formatoi taulu
-        switch (format) {
-            case 'ONLY_TRADE_DISCS': {
-				let i = 0;
-				for (i=0; i<discArray.length; i++) {
-					if (discArray[i].status.trim() === "Vaihtari") {
-						displayArray.push(this.crossTable(discArray[i]));
-					}
-				}
-                break;
-            }
-            default: {
-                displayArray = discArray.map ( item => this.crossTable(item) );
-                break;
-            }
-        }
-        //Palauta formatoitu taulu
-        return displayArray;
-    }
-	setTableDisplay (mode, dData) {
-		if ( mode === 'ALL' ) {
-			this.setState (
-				{ 
-					tText: 'Kaikki kiekot',
-					tButton: 'Vaihtarit',
-					tData: this.formattedArray ('ALL', dData)
-				}
-			);
-		}
-		else {
-			this.setState (
-				{ 
-					tText: 'Vaihtarit',
-					tButton: 'Kaikki kiekot',
-					tData: this.formattedArray ('ONLY_TRADE_DISCS', dData)
-				}
-			);
-		}			
-	}
-	toggleFilter () {
-		this.setState (
-			function (prevState) {
-				let orig = prevState.tText;
-				return (
-					{
-						tText: (orig === 'Vaihtarit') ? 'Kaikki kiekot' : 'Vaihtarit',
-						tButton: (orig === 'Vaihtarit') ? 'Vaihtarit' : 'Kaikki kiekot',
-						tData:
-							(orig === 'Vaihtarit') ? 
-							this.formattedArray('ALL', this.databaseData) :
-							this.formattedArray('ONLY_TRADE_DISCS', this.databaseData),
-					}
-				);
-			}
-		);
 	}
 	componentDidMount () {
 		// Lue tietokanta
@@ -182,8 +119,6 @@ export default class DscTable extends React.Component {
         return (
             <section className="disc-table content__center" style={{display:this.state.tDisplay}}>
 				<div className="disc-table__header">
-					<div className="disc-table__header__text">{this.state.tText}</div>
-					<div className="disc-table__header__button btn-basic" onClick={this.toggleFilter}>{this.state.tButton}</div>
 				</div>
                 <RTable cols={this.headers} data={this.state.tData} capt={this.state.tData.length}/>
             </section>          
