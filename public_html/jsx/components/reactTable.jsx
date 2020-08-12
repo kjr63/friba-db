@@ -114,9 +114,9 @@ export default function RTable (props) {
 		<div className="react-table__caption-2">
 			<div>Suodata taulu: </div> 
 			<GlobalFilter
-				preGlobalFilteredRows={preGlobalFilteredRows}
-				globalFilter={state.globalFilter}
-				setGlobalFilter={setGlobalFilter}
+				preGlobalFilteredRows = {preGlobalFilteredRows}
+				globalFilter = {state.globalFilter}
+				setGlobalFilter = {setGlobalFilter}
 			/>
 		</div>
 	  </caption>

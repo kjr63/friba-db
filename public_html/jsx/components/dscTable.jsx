@@ -6,7 +6,6 @@ import { database } from "../../firebase/firebase.jsx";
 export default class DscTable extends React.Component {
     constructor (props) {
         super(props);
-		this.databaseData = [];
 		this.headers = [
 			{
 				Header: 'Id',
@@ -90,13 +89,14 @@ export default class DscTable extends React.Component {
 		database.ref().once("value")
 			.then(
 				(snapshot) => {
+					let databaseData = [];
 					snapshot.forEach ( 
 						(childSnapshot) => {
 							let key = childSnapshot.key;
 							// childData will be the actual contents of the child
 							let childData = childSnapshot.val();
 							// Kirjoita data muuttujaan, jotta ei tarvita uutta tietokantahakua
-							this.databaseData.push(childData);
+							databaseData.push(childData);
 						}
 					);
 					//console.log("this.databaseData= "+this.databaseData);
@@ -104,8 +104,8 @@ export default class DscTable extends React.Component {
 					//this.setTableDisplay (DISPLAY_MODE, this.databaseData);
 					let displayArray = [];
 					let i = 0;
-					for (i=0; i<this.databaseData.length; i++) {
-						displayArray.push(this.crossTable(this.databaseData[i]));
+					for (i=0; i<databaseData.length; i++) {
+						displayArray.push(this.crossTable(databaseData[i]));
 					}
 					this.setState ({tData: displayArray});
 					this.setState ({tDisplay:'block'});
@@ -118,7 +118,7 @@ export default class DscTable extends React.Component {
     render () {
         return (
             <section className="disc-table content__center" style={{display:this.state.tDisplay}}>
-				<div className="disc-table__header"></div>
+				<div className="disc-table__header">Kiekkolista</div>
                 <RTable cols={this.headers} data={this.state.tData} />
             </section>          
         );
