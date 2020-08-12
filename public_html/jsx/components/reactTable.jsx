@@ -53,21 +53,22 @@ export default function RTable (props) {
 	  const count = preGlobalFilteredRows && preGlobalFilteredRows.length;
 
 	  return (
-	  <div>
 		<div>
-		  <button id="filtAll" onClick={e => {setGlobalFilter("");}}>
-			Kaikki kiekot
-		  </button>
-		  <button id="filtTrade" onClick={e => {setGlobalFilter("Vaihtari");}}>
-			Vaihtarit
-		  </button>
-		  <button id="filtBag" onClick={e => {setGlobalFilter("Bägi");}}>
-			Bägikiekot
-		  </button>
-		  <button id="filtOther" onClick={e => {setGlobalFilter("Muu");}}>
-			Ryhmä muut
-		  </button>
-		</div>
+			<div>
+			  <button id="filtAll" onClick={e => {setGlobalFilter("");}}>
+				Kaikki kiekot
+			  </button>
+			  <button id="filtTrade" onClick={e => {setGlobalFilter("Vaihtari");}}>
+				Vaihtarit
+			  </button>
+			  <button id="filtBag" onClick={e => {setGlobalFilter("Bägi");}}>
+				Bägikiekot
+			  </button>
+			  <button id="filtOther" onClick={e => {setGlobalFilter("Muu");}}>
+				Ryhmä muut
+			  </button>
+			</div>
+			<div>Kaikki kiekot {count} kpl</div>
 		</div>
 	  );
 	};
@@ -98,7 +99,7 @@ export default function RTable (props) {
 			pageIndex: 0,
 			hiddenColumns: ["col0", "col10"],
 			globalFilter: DISPLAY_MODE
-		} // Array<ColumnId: String>
+		}
     },
     useGlobalFilter,
 	useSortBy
@@ -109,13 +110,15 @@ export default function RTable (props) {
 	<div  className="disc-table__content">
     <table className="react-table" {...getTableProps()}>
 	  <caption className="react-table__caption">
-		<div>Kaikki kiekot {props.capt} kpl</div>
-		<span>Suodata status: </span> 
-		<GlobalFilter
-		preGlobalFilteredRows={preGlobalFilteredRows}
-		globalFilter={state.globalFilter}
-		setGlobalFilter={setGlobalFilter}
-		/>		
+		<div className="react-table__caption-1">Kiekkolista</div>
+		<div className="react-table__caption-2">
+			<div>Suodata taulu: </div> 
+			<GlobalFilter
+				preGlobalFilteredRows={preGlobalFilteredRows}
+				globalFilter={state.globalFilter}
+				setGlobalFilter={setGlobalFilter}
+			/>
+		</div>
 	  </caption>
       <thead className="react-table__thead" >
         {headerGroups.map(headerGroup => (

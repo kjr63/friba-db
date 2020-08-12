@@ -33,7 +33,8 @@
 		background-color: $color-sec;
 		color: whitesmoke;
 		font-size: 1.6rem;
-		//display: none;
+		&-1 {}
+		&-2 { display: none; }
 	}
 	&__thead {}
 	&__tr {}

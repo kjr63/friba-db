@@ -108,7 +108,7 @@ export default class DscTable extends React.Component {
 						displayArray.push(this.crossTable(this.databaseData[i]));
 					}
 					this.setState ({tData: displayArray});
-					this.setState({tDisplay:'block'});
+					this.setState ({tDisplay:'block'});
 				},
 				(error) => {
 					console.log("database read error: ", error);
@@ -118,9 +118,8 @@ export default class DscTable extends React.Component {
     render () {
         return (
             <section className="disc-table content__center" style={{display:this.state.tDisplay}}>
-				<div className="disc-table__header">
-				</div>
-                <RTable cols={this.headers} data={this.state.tData} capt={this.state.tData.length}/>
+				<div className="disc-table__header"></div>
+                <RTable cols={this.headers} data={this.state.tData} />
             </section>          
         );
     }
