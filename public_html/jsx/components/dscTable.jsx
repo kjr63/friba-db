@@ -95,7 +95,7 @@ export default class DscTable extends React.Component {
 							let key = childSnapshot.key;
 							// childData will be the actual contents of the child
 							let childData = childSnapshot.val();
-							// Kirjoita data muuttujaan
+							// Kirjoita data taulukkoon
 							databaseData.push(childData);
 						}
 					);
