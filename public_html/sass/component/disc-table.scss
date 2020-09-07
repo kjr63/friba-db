@@ -22,8 +22,8 @@
 		background-color: $color-sec;
 		color: whitesmoke;
 		font-size: 1.6rem;
-		/* &-1 { display: none; } */
-		/* &-2 { display: none; } */
+		&-1 { display: none; }
+		&-2 { display: none; }
 	}
 	&__thead {}
 	&__tr {}

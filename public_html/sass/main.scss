@@ -8,7 +8,6 @@ and open the template in the editor.
     Author     : risberg
 */
 @import "./abstract/variables.scss";
-@import "./abstract/animations.scss";
 @import "./base/base.scss";
 @import "./base/tooltip.scss";
 @import "./page/home.scss";
@@ -17,4 +16,5 @@ and open the template in the editor.
 @import "./layout/content.scss";
 @import "./component/button.scss";
 @import "./component/disc-table.scss";
+@import "./component/friba-animation.scss";
 

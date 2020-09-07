@@ -8,10 +8,13 @@ export default class Content extends React.Component {
     render () {     
         return (
 			<main className="main">
-				<div className="main__animation">
-					<div className="main__animation-left"></div>
-					<div className="main__animation-center"></div>
-					<div className="main__animation-right"></div>
+				<div className="friba-animation">
+					<div className="friba-animation-left"></div>
+					<div className="friba-animation-center">
+						<div class="friba-animation-center__flying-object">
+						</div>					
+					</div>
+					<div className="friba-animation-right"></div>
 				</div>
 				<div className="content">
 					<div className="content__left"></div>
