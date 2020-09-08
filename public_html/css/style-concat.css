@@ -211,12 +211,12 @@ table, th, td {
   0% { }
   90% {
     box-shadow: 0 0 0;
-    background-blend-mode: normal; }
-  98% {
     background-blend-mode: darken; }
+  98% {
+    background-blend-mode: lighten; }
   100% {
     box-shadow: 0 0 0;
-    background-blend-mode: normal; } }
+    background-blend-mode: darken; } }
 
 .friba-animation {
   display: flex;
@@ -242,8 +242,8 @@ table, th, td {
     height: 80px;
     border-radius: 50%;
     transform: skewY(20deg);
-    background-image: url("../img/fribakoriosuma.jpg"), radial-gradient(lightgreen, lightgreen);
-    background-blend-mode: normal;
+    background-image: url("../img/fribakoriosuma.jpg"), radial-gradient(ForestGreen, ForestGreen);
+    background-blend-mode: darken;
     background-size: cover;
     animation: baskethit 4s linear infinite;
     animation-delay: 1s; }
