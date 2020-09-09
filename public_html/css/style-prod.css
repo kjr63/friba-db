@@ -213,7 +213,7 @@ table, th, td {
     box-shadow: 0 0 0;
     background-blend-mode: darken; }
   98% {
-    background-blend-mode: lighten; }
+    background-blend-mode: overlay; }
   100% {
     box-shadow: 0 0 0;
     background-blend-mode: darken; } }

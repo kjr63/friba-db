@@ -11,7 +11,7 @@ export default class Content extends React.Component {
 				<div className="friba-animation">
 					<div className="friba-animation-left"></div>
 					<div className="friba-animation-center">
-						<div class="friba-animation-center__flying-object">
+						<div className="friba-animation-center__flying-object">
 						</div>					
 					</div>
 					<div className="friba-animation-right"></div>

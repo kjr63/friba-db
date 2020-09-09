@@ -50,8 +50,8 @@ export default class DscTable extends React.Component {
 					const valueArray = cell.value.split(';');
 					return (
 						<div>
-							<div><a target='_blank' href={valueArray[0]}> Kuva 1</a></div>
-							<div><a target='_blank' href={valueArray[1]}> Kuva 2 </a></div>
+							<div><a target='_blank' href={"https://"+valueArray[0]}> Kuva 1</a></div>
+							<div><a target='_blank' href={"https://"+valueArray[1]}> Kuva 2 </a></div>
 						</div>
 					);
 				}			
