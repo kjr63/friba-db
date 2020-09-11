@@ -21,9 +21,14 @@
 	&__caption {
 		background-color: $color-sec;
 		color: whitesmoke;
-		font-size: 1.6rem;
-		&-1 { display: none; }
-		&-2 { display: none; }
+		&-1 { 
+			//display: none;
+			font-size: 3.2rem;
+			padding: 1rem;
+		}
+		&-2 {
+			//display: none;
+		}
 	}
 	&__thead {}
 	&__tr {}
@@ -41,5 +46,14 @@
 			background-color: whitesmoke;
 			color: $color-pri;
 		}
+	}
+}
+.global-filter {
+	&__buttons {
+		display: flex;
+		justify-content: space-around;
+	}
+	&__caption {
+		padding: 1rem;
 	}
 }

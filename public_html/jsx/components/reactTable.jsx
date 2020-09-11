@@ -5,45 +5,45 @@ import { DISPLAY_MODE } from "../utils/variables.jsx";
 
 export default function RTable (props) {
 
-  // const data = React.useMemo(
-    // () => [
-      // {
-        // col1: 'Hello',
-        // col2: 'World',
-      // },
-      // {
-        // col1: 'react-table',
-        // col2: 'rocks',
-      // },
-      // {
-        // col1: 'whatever',
-        // col2: 'you want',
-      // },
-    // ],
-    // []
-  // )
+	// const data = React.useMemo(
+	// () => [
+	  // {
+		// col1: 'Hello',
+		// col2: 'World',
+	  // },
+	  // {
+		// col1: 'react-table',
+		// col2: 'rocks',
+	  // },
+	  // {
+		// col1: 'whatever',
+		// col2: 'you want',
+	  // },
+	// ],
+	// []
+	// )
 
-   const data = useMemo(
-    (d = props.data) => d //Poistettu [] , jolloin päivittää taulukon aina kun data muuttuu
-    //(d = props.data) => d, []
-  )
-  
-  // const columns = React.useMemo(
-    // () => [
-      // {
-        // Header: 'Column 1',
-        // accessor: 'col1', // accessor is the "key" in the data
-      // },
-      // {
-        // Header: 'Column 2',
-        // accessor: 'col2',
-      // },
-    // ],
-    // []
-  // )
-  const columns = useMemo(
-    (h = props.cols) => h, []
-  )  
+	const data = useMemo(
+	(d = props.data) => d //Poistettu [] , jolloin päivittää taulukon aina kun data muuttuu
+	//(d = props.data) => d, []
+	)
+
+	// const columns = React.useMemo(
+	// () => [
+	  // {
+		// Header: 'Column 1',
+		// accessor: 'col1', // accessor is the "key" in the data
+	  // },
+	  // {
+		// Header: 'Column 2',
+		// accessor: 'col2',
+	  // },
+	// ],
+	// []
+	// )
+	const columns = useMemo(
+	(h = props.cols) => h, []
+	)  
 
 	const GlobalFilter = ({
 	  preGlobalFilteredRows,
@@ -53,22 +53,22 @@ export default function RTable (props) {
 	  const count = preGlobalFilteredRows && preGlobalFilteredRows.length;
 
 	  return (
-		<div>
-			<div>
-			  <button id="filtAll" onClick={e => {setGlobalFilter("");}}>
-				Kaikki kiekot
-			  </button>
-			  <button id="filtTrade" onClick={e => {setGlobalFilter("Vaihtari");}}>
-				Vaihtarit
-			  </button>
-			  <button id="filtBag" onClick={e => {setGlobalFilter("Bägi");}}>
-				Bägikiekot
-			  </button>
-			  <button id="filtOther" onClick={e => {setGlobalFilter("Muu");}}>
-				Ryhmä muut
-			  </button>
+		<div className="global-filter">
+			<div className="global-filter__buttons">
+				  <div className="filter-button" onClick={e => {setGlobalFilter("");}}>
+					Kaikki kiekot
+				  </div>
+				  <div className="filter-button" onClick={e => {setGlobalFilter("Vaihtari");}}>
+					Vaihtarit
+				  </div>
+				  <div className="filter-button" onClick={e => {setGlobalFilter("Bägi");}}>
+					Bägikiekot
+				  </div>
+				  <div className="filter-button" onClick={e => {setGlobalFilter("Muu");}}>
+					Ryhmä muut
+				  </div>
 			</div>
-			<div>Kaikki kiekot {count} kpl</div>
+			<div className="global-filter__caption">{globalFilter}</div>
 		</div>
 	  );
 	};
@@ -110,9 +110,8 @@ export default function RTable (props) {
 	<div  className="disc-table__content">
     <table className="react-table" {...getTableProps()}>
 	  <caption className="react-table__caption">
-		<div className="react-table__caption-1">Kiekkolista</div>
+		<div className="react-table__caption-1">Suodata tiedot</div>
 		<div className="react-table__caption-2">
-			<div>Suodata taulu: </div> 
 			<GlobalFilter
 				preGlobalFilteredRows = {preGlobalFilteredRows}
 				globalFilter = {state.globalFilter}

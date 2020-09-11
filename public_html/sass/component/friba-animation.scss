@@ -84,7 +84,8 @@
 				height: 16px;
 				background-image: url('../sprites/ufospritesheet-small.png');
 				animation: ufospin 0.8s steps(8) infinite, ufomove 4s linear infinite;
-				animation-delay: 1s;				
+				animation-delay: 1s;
+				margin-left: -50%;
 			}
 		}
 		&-right {
