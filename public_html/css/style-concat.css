@@ -129,7 +129,7 @@ table, th, td {
   padding-top: 4rem;
   transform: skewY(20deg); }
   .content__left {
-    flex-basis: 22%; }
+    flex-basis: 15%; }
   .content__center {
     overflow: hidden; }
   .content__right {
