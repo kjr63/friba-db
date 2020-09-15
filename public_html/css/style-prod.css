@@ -175,6 +175,8 @@ table, th, td {
     background-color: #7a3b2e;
     color: whitesmoke;
     font-weight: bold; }
+    .react-table__th__sort-icon {
+      color: aqua; }
   .react-table__body__td {
     padding: 10px;
     border: 1px solid gray;

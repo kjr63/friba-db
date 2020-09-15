@@ -126,8 +126,14 @@ export default function RTable (props) {
               <th className="react-table__th"
                 {...column.getHeaderProps( column.getSortByToggleProps() )}
               >
-                {column.render('Header')}
-			
+				{column.render('Header')}<pre> </pre>
+				<span className="react-table__th__sort-icon">
+					{column.isSorted
+					  ? column.isSortedDesc
+						? ' ▼'
+						: ' ▲'
+					  : '▲▼'}
+				</span>
               </th>
             ))}
           </tr>

@@ -37,6 +37,10 @@
 		background-color: $color-quad;
 		color: whitesmoke;
 		font-weight: bold;
+		&__sort-icon {
+			//background-color: ForestGreen;
+			color: aqua;
+		}
 	}
 	&__body {
 		&__tr {}
