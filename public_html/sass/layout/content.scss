@@ -6,7 +6,7 @@
 .content {
 	display: flex;
 	justify-content: space-around;
-	align-items: center;
+	align-items: top;
 	padding-top: 4rem;
 	transform: skewY(20deg);
 	&__left { 

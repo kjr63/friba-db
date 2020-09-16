@@ -117,8 +117,8 @@ export default class DscTable extends React.Component {
 	}	
     render () {
         return (
-            <section className="disc-table content__center" style={{display:this.state.tDisplay}}>
-				<div className="disc-table__header">Kiekkolista</div>
+            <section className="disc-table" style={{display:this.state.tDisplay}}>
+				<div className="disc-table__header">Kiekkolista<i className="fa fa-cog"></i></div>
                 <RTable
 					cols={this.headers}
 					data={this.state.tData}

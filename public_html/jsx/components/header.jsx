@@ -8,6 +8,7 @@ export default class Header extends React.Component {
         return (
             <header className="header">
                 <div className="header__text-1">Friba Db</div>
+                <div className="header__text-2"></div>
 				{/*
 				<div className="header__image">
 					<div className="image_block">
