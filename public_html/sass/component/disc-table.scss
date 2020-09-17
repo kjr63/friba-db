@@ -6,17 +6,25 @@
 		//background-color: $color-sec;
 		color: whitesmoke;
 		font-size: 4rem;
-		text-align: left;
+		display: flex;
+		justify-content: space-between;
+		&-1 {
+			
+		}
+		&-2 {
+			cursor: pointer;
+		}
 	}
 }
 .react-table {
 	border: 1px solid blue;
+	font-size: 1.4rem;
 	&__caption {
 		background-color: $color-sec;
 		color: whitesmoke;
 		&-1 { 
 			//display: none;
-			font-size: 3.2rem;
+			font-size: 1.8rem;
 			padding: 1rem;
 		}
 		&-2 {
@@ -52,5 +60,6 @@
 	}
 	&__caption {
 		padding: 1rem;
+		font-size: 2.8rem;
 	}
 }

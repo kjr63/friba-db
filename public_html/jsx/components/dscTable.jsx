@@ -66,7 +66,13 @@ export default class DscTable extends React.Component {
 			tDisplay: 'none',
 		}
 		this.crossTable = this.crossTable.bind(this);
+		this.dbSetup = this.dbSetup.bind(this);
     }
+
+	dbSetup () {
+		alert("dbSetup");
+		database.ref('0').update({status:'Vaihtari'});
+	}
 
 	crossTable (from) {
 		let toRow = {
@@ -95,6 +101,8 @@ export default class DscTable extends React.Component {
 							let key = childSnapshot.key;
 							// childData will be the actual contents of the child
 							let childData = childSnapshot.val();
+							// Aseta key = id
+							childData.id = key;
 							// Kirjoita data taulukkoon
 							databaseData.push(childData);
 						}
@@ -118,7 +126,12 @@ export default class DscTable extends React.Component {
     render () {
         return (
             <section className="disc-table" style={{display:this.state.tDisplay}}>
-				<div className="disc-table__header">Kiekkolista<i className="fa fa-cog"></i></div>
+				<div className="disc-table__header">
+					<div className="disc-table__header-1">Kiekkolista</div>
+					<div className="disc-table__header-2">
+						<i className="fa fa-cog" onClick={this.dbSetup}></i>
+					</div>
+				</div>
                 <RTable
 					cols={this.headers}
 					data={this.state.tData}
