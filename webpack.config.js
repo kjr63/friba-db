@@ -12,7 +12,7 @@ module.exports = function (env) {
 				app: "./public_html/jsx/app.jsx"
 				//blog: "./public_html/jsx/components/blog.jsx"
 			},
-			mode: "development",
+			mode: isProduction ? "production" : "development",
 			output: {
 				path: path.join(__dirname, 'public_html', 'js'),
 				filename: "[name].js"
