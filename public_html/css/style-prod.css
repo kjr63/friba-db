@@ -105,7 +105,7 @@ table, th, td {
 .header {
   font-size: 8rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
   padding: 1.6rem;
   transform: translateY(-12rem); }
@@ -114,6 +114,9 @@ table, th, td {
     font-family: sans-serif;
     font-weight: bold;
     text-shadow: 3px 3px 5px #a79e84; }
+  .header__text-2 {
+    color: DarkGrey;
+    font-size: 3.2rem; }
 
 .image_block {
   text-align: right; }
@@ -125,7 +128,7 @@ table, th, td {
 .content {
   display: flex;
   justify-content: space-around;
-  align-items: center;
+  align-items: top;
   padding-top: 4rem;
   transform: skewY(20deg); }
   .content__left {
@@ -156,20 +159,19 @@ table, th, td {
     padding: 1rem;
     color: whitesmoke;
     font-size: 4rem;
-    text-align: left; }
-  .disc-table__content {
     display: flex;
-    justify-content: center;
-    padding: 1rem;
-    font-size: 1.4rem; }
+    justify-content: space-between; }
+    .disc-table__header-2 {
+      cursor: pointer; }
 
 .react-table {
-  border: 1px solid blue; }
+  border: 1px solid blue;
+  font-size: 1.4rem; }
   .react-table__caption {
     background-color: #bd5734;
     color: whitesmoke; }
     .react-table__caption-1 {
-      font-size: 3.2rem;
+      font-size: 1.8rem;
       padding: 1rem; }
   .react-table__th {
     background-color: #7a3b2e;
@@ -188,7 +190,8 @@ table, th, td {
   justify-content: space-around; }
 
 .global-filter__caption {
-  padding: 1rem; }
+  padding: 1rem;
+  font-size: 2.8rem; }
 
 @keyframes chu {
   from {
